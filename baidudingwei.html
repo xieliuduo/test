@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="js/jquery-1.7.2.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+   
+        $.getJSON('http://api.map.baidu.com/geocoder/v2/?ak=71709218d45a706b9c7e3abc2f037b23&callback=?&location=116.0809,390876&output=json&pois=1', function(res){
+            console.log(res.result.addressComponent)
+        })
+        </script>             
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>克隆</title>
+    <script type="text/javascript">
+    var aa = {
+        a: "a"
+    };
+    var bb = {
+        b: "b"
+    };
+    // var c = a;
+    // var a = b;
+    // var b = c;
+    // a.d = 44;
+    // b.c = 33;
+    // console.log(a);
+    // console.log(b);
+    // //console.log(c);
+
+    function exchangeJson(a, b) {
+
+        var str_a = JSON.stringify(a); //这里将json内的数据转换成一个字符串存起来
+        var str_b = JSON.stringify(b);
+        a = JSON.parse(str_b);
+        b = JSON.parse(str_a);
+        console.log(a);
+        console.log(b);
+        return {a,b};
+    }
+    exchangeJson(aa,bb);
+    console.log(aa);
+    console.log(bb);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

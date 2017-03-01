@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: red;
+    /*margin: 100px auto;*/
+    font-size: 30px;
+    text-align: center;
+}
+#shuzhi{
+	margin-left: 100px;	
+}
+</style>
+<script type="text/javascript">
+function d2a(n) {
+    return Math.PI * n / 180;
+}
+
+function a2d(n) {
+    return 180 * n / Math.PI;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    var oBox = document.getElementById('box');
+    var oZhi=document.getElementById('shuzhi');
+     var d = 0;
+     var d0=10;
+     oBox.style.transform = 'rotate(' + (d0+d) + 'deg)';
+    oBox.onmousedown = function(ev) {
+        var x = oBox.offsetLeft + 100 - ev.clientX;
+        var y = oBox.offsetTop + 100 - ev.clientY;
+        //储存鼠标按下时的角度
+        var d1 = a2d(Math.atan2(y, x));
+        var d2 = d1;
+        oBox.onmousemove = function(ev) {
+            var x2 = oBox.offsetLeft + 100 - ev.clientX;
+            var y2 = oBox.offsetTop + 100 - ev.clientY;
+            //鼠标移动是的角度
+            var dis = a2d(Math.atan2(y2, x2)) - d2;
+            if (dis <= (-300)) {
+                dis = 1;
+            }
+            if (dis >= (300)) {
+                dis = -1;
+            }
+
+            if (dis > 0) {
+                d += 1;
+            }
+            if (dis < 0) {
+                d -= 1;
+            }
+            d2 = a2d(Math.atan2(y2, x2));
+
+
+            if (d >= 50) {
+                d = 50;
+            }
+            if (d <= -220) {
+                d = -220;
+            }    
+            oZhi.innerHTML = 80-d;
+            oBox.style.transform = 'rotate(' + (d0+d) + 'deg)';
+
+        };
+        document.onmouseup = function() {
+            oBox.onmousemove = null;
+            oBox.onmouseup = null;
+        }
+    }
+}, false)
+</script>
+
+<body>
+<h1 id='shuzhi'>80</h1>
+    <div id="box">
+        <p id='txt'>90</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<h1>请先引用正确的jq</h1>
+<script src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		
+
+			var latitude =39.90403;
+			var longitude=116.407526;
+
+		$.ajax({
+			url: 'http://api.map.baidu.com/geocoder/v2/?ak=btsVVWf0TM1zUBEbzFz6QqWF&callback=renderReverse&location=' + latitude + ',' + longitude + '&output=json&pois=1',
+			type: "get",
+			dataType: "jsonp",
+			jsonp: "callback",
+			success: function (data) {
+				console.log(data);
+				var province = data.result.addressComponent.province;
+				var cityname = (data.result.addressComponent.city);
+				var district = data.result.addressComponent.district;
+				var street = data.result.addressComponent.street;
+				var street_number = data.result.addressComponent.street_number;
+				var formatted_address = data.result.formatted_address;
+				localStorage.setItem("province", province);
+				localStorage.setItem("cityname", cityname);
+				localStorage.setItem("district", district);
+				localStorage.setItem("street", street);
+				localStorage.setItem("street_number", street_number);
+				localStorage.setItem("formatted_address", formatted_address);
+				//domTempe(cityname,latitude,longitude);
+				var data = {
+					latitude: latitude,
+					longitude: longitude,
+					cityname: cityname
+				};
+				// if (typeof callback == "function") {
+				// 	callback(data);
+				// }
+					console.log(":province"+province)
+					console.log(":cityname"+cityname)
+					console.log(":district"+district)
+					console.log(":street"+street)
+					console.log(":street_number"+street_number)
+					console.log(":formatted_address"+formatted_address)
+			alert(province)
+			}
+		});
+	
+
+//cityname(39.90403, 116.407526) 
+
+	</script>
+
+</body>
+</html>

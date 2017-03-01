@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>心率</title>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        /*overflow: hidden;*/
+        width: 100%;
+    }
+    
+    .warp {
+        width: 100%;
+        overflow-x: hidden;
+        /*position: relative;*/
+    }
+    
+    .biaochi {
+        position: relative;
+        left: 0px;
+        width: 2000px;
+        height: 200px;
+        background-color: green;
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    .shuzhi {
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    .zhizhen {
+        position: relative;
+        text-align: center;
+        font-size: 50px;
+        margin-bottom: -30px;
+        z-index: 20;
+    }
+    
+    .left {
+        position: absolute;
+        left: 0;
+    }
+    
+    .right {
+        position: absolute;
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <p class="shuzhi">
+            <span id="shuzhi">5</span>
+        </p>
+        <p class="zhizhen">↓</p>
+        <div class="biaochi" id="biaochi">
+            <span class="left">0左</span>
+            <span>中</span>
+            <span class="right">右2000</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var oTxt = document.getElementById('shuzhi');
+        var oDiv = document.getElementById('biaochi');
+        var d = 0;
+        // var d0 = n;
+        var d0 = 0;
+        var shu = 5;
+        oDiv.style.transform = 'translateX(' + (d0 + d) + 'px)';
+        var oW = oDiv.offsetWidth;
+        // var cont=100;
+
+        oDiv.addEventListener('touchstart', function(ev) {
+
+            var d1 = ev.touches[0].pageX;
+            var d2 = d1;
+
+            function fnMove(ev) {
+                //鼠标移动时  x 的差值
+                var dis = ev.touches[0].pageX - d2;
+                //
+                d2 = ev.touches[0].pageX
+                if (dis > 0) {
+                    shu--;
+                    if (shu <= -1) {
+                        shu = 0;
+                        return;
+                    }
+                    d += 10;
+                }
+                if (dis < 0) {
+                    shu++;
+                    if (shu >= 101) {
+                        shu = 100
+                        return;
+                    }
+                    d -= 10;
+                }
+                d2 = ev.touches[0].pageX;
+
+
+
+
+                oTxt.innerHTML = shu;
+                oDiv.style.transform = 'translateX(' + (d0 + d) + 'px)';
+            }
+
+            function fnEnd() {
+                oDiv.removeEventListener('touchmove', fnMove, false);
+                oDiv.removeEventListener('touchend', fnEnd, false);
+            }
+            oDiv.addEventListener('touchmove', fnMove, false);
+            oDiv.addEventListener('touchend', fnEnd, false);
+        }, false);
+    }, false);
+    </script>
+</body>
+
+</html>

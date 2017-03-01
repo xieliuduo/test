@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>xuanxiangka </title>
+<style>
+*{margin:0; padding:0;}
+#div1{width:200px;}
+#div1 input{background:#ccc;}
+#div1 input.on{background:red;}
+#div1 div{width:200px; height:200px; background:#ccc; display:none;}
+</style>
+<script>
+window.onload = function(){
+	var oBox = document.getElementById('div1');
+	var aBtn = oBox.getElementsByTagName('input');
+	var aDiv = oBox.getElementsByTagName('div');
+	var iNow = 0;
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick=function(){
+			iNow = this.index;
+			tab();
+		};
+	}
+	function tab(){
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].className='';
+			aDiv[i].style.display='none';
+		}
+		aBtn[iNow].className='on';
+		aDiv[iNow].style.display='block';
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input type="button" value="aaa" class="on" />
+	<input type="button" value="bbb" />
+	<input type="button" value="ccc" />
+	<div style="display:block;">111</div>
+	<div>222</div>
+	<div>333</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

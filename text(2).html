@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: red;
+			margin:100px auto;
+			font-size: 30px;
+			/*text-align: center;*/
+			overflow: hidden;
+		}
+		#box p{
+			margin-top: 86px;
+		}
+	</style>
+	<script type="text/javascript">
+	
+	function d2a(n){return Math.PI*n/180;}
+	function a2d(n){return 180*n/Math.PI;}
+			document.addEventListener('DOMContentLoaded',function(){
+				var oTxt=document.getElementById('txt');
+				var oBox=document.getElementById('box');
+				//oBox.style.transform='rotate(15deg)';
+				//oBox.style.transform='rotate(90deg)';
+				var d=0;
+				var d3=0;
+				var d1=0;
+				var d2=0;
+				var n=0;
+				var x2=0;
+				var y2=0;
+				oBox.onmousemove=function(ev){
+					var x = oBox.offsetLeft+100-ev.clientX;
+                	var y = oBox.offsetTop+100-ev.clientY;
+                	//储存鼠标按下时的角度
+                	d1 = a2d(Math.atan2(y,x));
+                	if(d1<=0){
+                		d1+=360;
+                	}
+                	oTxt.innerHTML=d1;
+              		oBox.style.transform='rotate('+d1+'deg)';
+
+				}
+				return false;
+			},false)
+	</script>
+	<body>
+	<h1 id="txt"></h1>
+		<div id="box">
+			<p id=''>--1------------2--</p>
+			
+		</div>
+	</body>
+</html>

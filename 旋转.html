@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>ThreeSixty</title>
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body>
+ 
+        <h1>threesixty</h1>
+        <h2>a jQuery plugin for creating draggable 360s</h2>
+ 
+        <div class="threesixty-wrapper">
+ 
+            <div class="threesixty" data-path="assets/img/src/gem{index}.jpg" data-count="61">
+                <!-- put your preloader here -->
+                <div class="ui-spinner">
+                    <span class="side side-left">
+                        <span class="fill"></span>
+                    </span>
+                    <span class="side side-right">
+                        <span class="fill"></span>
+                    </span>
+                </div>
+                <!-- end preloader -->
+            </div>
+ 
+            <div class="ui">
+                <div class="next">next frame</div>
+                <div class="prev">previous frame</div>
+            </div>
+ 
+            <img src="assets/img/label.png" alt="" class="label"/>
+ 
+        </div>
+ 
+    <a href="http://www.juheweb.com/js/qtdm/60.html" target="_blank" class="download-btn"><h1>download</h1></a></div><br/>
+ 
+        <div class="examples">
+            <div class="html">
+                <h3>html</h3>
+                <script src="https://gist.github.com/nick-jonas/4724870.js"></script>
+            </div>
+            <div class="js">
+                <h3>js</h3>
+                <script src="https://gist.github.com/nick-jonas/4724852.js"></script>
+            </div>
+        </div>
+ 
+ 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="assets/js/jquery.threesixty.js"></script>
+        <script>
+            $(document).ready(function(){
+ 
+                var $threeSixty = $('.threesixty');
+ 
+                $threeSixty.threeSixty({
+                    dragDirection: 'horizontal',
+                    useKeys: true,
+                    draggable: true
+                });
+ 
+                $('.next').click(function(){
+                    $threeSixty.nextFrame();
+                });
+ 
+                $('.prev').click(function(){
+                    $threeSixty.prevFrame();
+                });
+ 
+                $threeSixty.on('down', function(){
+                    $('.ui, h1, h2, .label, .examples').stop().animate({opacity:0}, 300);
+                });
+ 
+                $threeSixty.on('up', function(){
+                    $('.ui, h1, h2, .label, .examples').stop().animate({opacity:1}, 500);
+                });
+            });
+        </script>
+    <!--代码结束 -->
+    <div style="clear:both; text-align:center; margin-top:50px;"><script type="text/javascript">    var cpro_id = "u1706615";</script><script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script></div>
+<div class="d_foot_o">标题：<a title="" href="http://www.juheweb.com/js/qtdm/60.html">可拖动的360旋转预览jQuery插件</a>&nbsp;&nbsp;&nbsp;栏目分类：<a class="lm" title="其他代码" target="_blank" href="http://www.juheweb.com/js/qtdm/">其他代码</a>&nbsp;&nbsp;&nbsp;素材整理：<a href="http://www.juheweb.com">聚合分享</a>&nbsp;&nbsp;&nbsp;下载：<a title="立即下载" href="http://www.juheweb.com/js/qtdm/60.html">立即下载</a></div>    </body>
+</html>

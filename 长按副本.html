@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+</head> 
+
+<body>
+<a href="baidudingwei.html" title="">
+    <div id="myDiv" style="width:500px; height:500px; background:#ddd;">out</div>
+</a>
+    
+</body>
+
+</html>
+<script>
+/*设置一个长按的计时器，如果点击这个图层超过2秒则触发，mydiv里面的文字从out变in的动作*/
+var timeout;
+var div1 = document.getElementById('mydiv');
+
+$("#mydiv").click(function(){
+	alert(1212);
+});
+
+
+$("#mydiv").mousedown(function() {
+    timeout = setTimeout(function() {
+        $("#mydiv").text("in");
+        $("#mydiv").css("border","50px");
+        
+
+
+        // $("#mydiv").animate({
+        //     width: "600px",
+        //     height: "100",
+        //     fontSize: "10em",
+        //     borderWidth: 10
+
+        // }, 1000);
+        var $div1=$(div1);
+        $div1.animate({
+            width: "600px",
+            height: "100",
+            fontSize: "10em",
+            borderWidth: 10
+
+        }, 1000);
+        return false;
+    }, 1000);
+    return false;
+      event.stopPropagation();
+});
+
+$("#mydiv").mouseup(function() {
+    clearTimeout(timeout);
+    $("#mydiv").text("out");
+});
+
+$("#mydiv").mouseout(function() {
+    clearTimeout(timeout);
+    $("#mydiv").text("out");
+});
+</script>
+
+<script type="text/javascript">
+
+</script>

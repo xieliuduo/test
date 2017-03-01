@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com"/>
+    <meta name="copyright" content="智能社 - zhinengshe.com"/>
+    <title>智能社— http://www.zhinengshe.com</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: red;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oBtn=document.getElementById('btn');
+            var oBox2=oBtn.parentNode;
+            var oBox1=oBox2.parentNode;
+            oBtn.onclick=function(e){
+                alert('btn');
+                //e.stopPropagation();
+                return false;
+
+            };
+            oBox2.onclick=function(){
+                alert('box2');
+            };
+            oBox1.onclick=function(){
+                alert('box1');
+            };
+            document.onclick=function(){
+                alert('document');
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="div1">
+<a href="h5js拖拽.html" title="">
+    <div id="div2">
+        <input type="button" value="按钮" id="btn" />
+    </div>
+</a>
+    
+</div>
+</body>
+</html>

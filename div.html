@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转动</title>
+	<style type="text/css" media="screen">
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 50%;
+			text-align: center;
+			-webkit-transform: rotate(45deg);
+			/*-moz-transform: rotate(36);
+			-ms-transform: rotate(36);
+			-o-transform: rotate(36);
+			transform: rotate(36);*/
+			
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">123456
+	<p>12</p>
+	<p>34</p>
+	<p>78</p>
+	<p>99</p>
+	</div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var jiaodu=90;
+			oBox.onmousedown=function(ev){
+				 
+                
+
+                
+
+                    oBox.onmousemove = function(ev){
+                    	jiaodu+=3
+                         oBox.style.transform = 'rotate('+jiaodu+'deg)';
+                    };
+                    oBox.onmouseup = function(){
+
+                        oBox.onmousemove = null;
+                        oBox.onmouseup = null;
+                    };
+
+
+                
+            
+
+			}
+		}
+	</script>
+</body>
+</html>

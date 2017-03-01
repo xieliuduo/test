@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择元素</title>
+	<style type="text/css" media="screen">
+		.aa{
+            display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="contant">
+		<div class="aa cc">a</div>
+		<div class="bb cc">b</div>
+		<div class="aa cc">a</div>
+		<div class="aa cc">a</div>
+		<div class="bb cc">b</div>
+		<div class="aa cc">a</div>
+		<div class="aa cc">a</div>
+		<div class="bb cc">b</div>
+		<div class="aa cc">a</div> 
+	</div>
+	<script src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			alert($('.contant').find('.cc:visible').length);
+		});
+	</script>
+</body>
+</html>
