@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全屏</title>
+</head>
+
+<body>
+    <div>1234567890-=</div>
+    <button class="btn" type="">全屏</button>
+    <button class="btn">退出全屏</button>
+    <script type="text/javascript">
+    var btn = document.querySelector('.btn');
+    btn.onclick = function() {
+        var docElm = document.documentElement;
+        //W3C  
+        if (docElm.requestFullscreen) {
+            this.requestFullscreen();
+        }
+        //FireFox  
+        else if (docElm.mozRequestFullScreen) {
+            this.mozRequestFullScreen();
+        }
+        //Chrome等  
+        else if (docElm.webkitRequestFullScreen) {
+            this.webkitRequestFullScreen();
+        }
+        //IE11
+        else if (elem.msRequestFullscreen) {
+            this.msRequestFullscreen();
+        }
+    };
+var btn2=document.querySelectorAll('.btn')[1];
+console.log(btn2);
+	btn2.onclick=function(){
+		exitFullscreen();
+	};
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { //兼容moz
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { //兼容webkit
+            document.webkitExitFullscreen();
+        }
+    }
+    </script>
+</body>
+
+</html>
