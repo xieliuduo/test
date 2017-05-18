@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>querySelector</title>
+<script src="js/jquery-1.7.2.js"></script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>1</li>
+
+		<li>1</li>
+		<li>1</li>
+		<li style="display: none">3</li>
+		<li style="display: none">3</li>
+		<li style="display: none">3</li>
+		<li style="display: none">3</li>
+
+	</ul>
+	<script type="text/javascript">
+		//alert(document.querySelectorAll("li:visible").length);
+		alert($('li:visible').length);
+		alert($('li').length);
+	</script>
+</body>
+</html>
