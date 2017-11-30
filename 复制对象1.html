@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复制对象1</title>
+	<style type="text/css" media="screen">
+	
+	#asd{
+		color:yellow;
+	}
+	a:hover{
+		color:red;
+	}		
+	</style>
+	<script type="text/javascript">
+		var json={
+			"a":'1',
+			"b":'2',
+			"c":function(){
+				alert(123);
+
+			},
+		};
+		var json2={};
+		json2=JSON.parse(JSON.stringify(json)); 
+		console.log(json2);
+		var arr=[];
+		arr.push(json);
+		var arr2=[].concat(arr);
+		//arr2[0].c();
+		arr2[0].d=66;
+		console.log(json);
+		var json3=arr[0];
+var a=[1,2,3];  
+var b=a;  
+var c=[].concat(a);  
+a.push(4);  
+console.log(b);  
+console.log(c);
+	</script>
+</head>
+<body>
+	<a href="" title="">728t12312361289391</a>
+
+	<a id="asd" href="" title="">639163912371237120313910</a>
+</body>
+</html>
